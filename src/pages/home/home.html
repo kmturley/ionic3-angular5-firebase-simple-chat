@@ -43,29 +43,29 @@
       <ion-col col-6 class="input">
         <h2>Input</h2>
         <div class="controls">
-          <select id="selectLanguage" [(ngModel)]="speechService.selectLanguage" (change)="speechService.updateDialects($event)">
-            <option [ngValue]="language.value" *ngFor="let language of speechService.languages">{{ language.label }}</option>
+          <select id="selectLanguage" [(ngModel)]="selectLanguage" (change)="updateDialects($event)">
+            <option [ngValue]="language.value" *ngFor="let language of languages">{{ language.label }}</option>
           </select>
-          <select id="selectDialect" [(ngModel)]="speechService.selectDialect" [disabled]="speechService.dialects.length==1">
-            <option [ngValue]="dialect.value" *ngFor="let dialect of speechService.dialects">{{ dialect.label }}</option>
+          <select id="selectDialect" [(ngModel)]="selectDialect" [disabled]="dialects.length==1">
+            <option [ngValue]="dialect.value" *ngFor="let dialect of dialects">{{ dialect.label }}</option>
           </select>
-          <button id="buttonStart" (click)="speechService.start($event)">Start</button>
+          <button id="buttonStart" (click)="start($event)">Start</button>
         </div>
         <div class="results" id="textareaInput">
-          <span class="final" id="final_span">{{ speechService.final_span }}</span>
-          <span class="interim" id="interim_span">{{ speechService.interim_span }}</span>
+          <span class="final" id="final_span">{{ messages.final_span }}</span>
+          <span class="interim" id="interim_span">{{ messages.interim_span }}</span>
         </div>
       </ion-col>
       <ion-col col-6 class="output">
         <h2>Output</h2>
         <div class="controls">
-          <select id="selectVoice" [(ngModel)]="speechService.selectVoice">
-            <option [ngValue]="voice.value" *ngFor="let voice of speechService.voices">{{ voice.label }}</option>
+          <select id="selectVoice" [(ngModel)]="selectVoice">
+            <option [ngValue]="voice.value" *ngFor="let voice of voices">{{ voice.label }}</option>
           </select>
         </div>
         <div class="results" id="textareaOutput">
-          <span class="final" id="final_voice">{{ speechService.final_voice }}</span>
-          <span class="interim" id="interim_voice">{{ speechService.interim_voice }}</span>
+          <span class="final" id="final_voice">{{ messages.final_voice }}</span>
+          <span class="interim" id="interim_voice">{{ messages.interim_voice }}</span>
         </div>
       </ion-col>
     </ion-row>

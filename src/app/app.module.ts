@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
 import { RoomPage } from '../pages/room/room';
 import { AddRoomPage } from '../pages/add-room/add-room';
-import { SpeechService } from '../pages/home/speech';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { SpeechService } from '../pages/home/speech';
   providers: [
     StatusBar,
     SplashScreen,
-    SpeechService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
