@@ -2,6 +2,7 @@ import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, NavParams, Content } from 'ionic-angular';
 import { RoomPage } from '../room/room';
 import * as firebase from 'Firebase';
+import { config } from '../../app/app.component';
 
 @Component({
   selector: 'page-home',
@@ -387,7 +388,7 @@ export class HomePage {
 
   translate(langInput: string, langOutput: string, text: string, callback: Function) {
     console.log('translate', langInput, langOutput, text);
-    this.load(`https://translation.googleapis.com/language/translate/v2/?q=${window['encodeURI'](text)}&source=${langInput}&target=${langOutput}&key=AIzaSyAc6SD0Ou6Z9yv20FexNrlU2ql568He89I`, (response) => {
+    this.load(`https://translation.googleapis.com/language/translate/v2/?q=${window['encodeURI'](text)}&source=${langInput}&target=${langOutput}&key=${config.translateAPI}`, (response) => {
       callback(response.data.translations[0].translatedText);
     });
   }
@@ -415,7 +416,7 @@ export class HomePage {
     utterThis.pitch = 1;
     utterThis.rate = 1;
     this.synth.speak(utterThis);
-    utterThis.onpause = (event) => {
+    utterThis.onpause = (event:SpeechSynthesisEvent) => {
       this.zone.run(() => {
         var char = event.utterance.text.charAt(event.charIndex);
         console.log('Speech paused at character ' + event.charIndex + ' of "' +

@@ -10,6 +10,7 @@
     "lint": "ionic-app-scripts lint",
     "start": "ionic serve",
     "emulate": "ionic cordova emulate ios -lc --debug --target=\"iPhone-X\" -- --buildFlag=\"-UseModernBuildSystem=0\"",
+    "emulate-2": "ionic cordova emulate android --verbose",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
