@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "chatrooms": {
+      ".read": true,
+      "$roomId": {
+        ".read": true,
+        ".write": "!data.exists()",
+        "chats": {
+          "$chatId": {
+            ".read": true,
+            ".write": "!data.exists()"
+          }
+        }
+      }
+    }
+  }
+}

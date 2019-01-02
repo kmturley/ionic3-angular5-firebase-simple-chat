@@ -1,7 +1,10 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Firebase Speech Chat
+      Output: 
+      <select class="voice-select" [(ngModel)]="selectVoice">
+        <option [ngValue]="voice.value" *ngFor="let voice of voices">{{ voice.label }}</option>
+      </select>
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="exitChat()">
@@ -40,34 +43,35 @@
 <ion-footer>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 class="input">
-        <h2>Input</h2>
-        <div class="controls">
-          <select id="selectLanguage" [(ngModel)]="selectLanguage" (change)="updateDialects($event)">
+      <ion-col class="input">
+        <!-- <h2>Input</h2> -->
+        <div class="controls toolbar-title toolbar-title-md">
+          Input: 
+          <select [(ngModel)]="selectLanguage" (change)="updateDialects($event)">
             <option [ngValue]="language.value" *ngFor="let language of languages">{{ language.label }}</option>
           </select>
-          <select id="selectDialect" [(ngModel)]="selectDialect" [disabled]="dialects.length==1">
+          <select [(ngModel)]="selectDialect" [disabled]="dialects.length==1">
             <option [ngValue]="dialect.value" *ngFor="let dialect of dialects">{{ dialect.label }}</option>
           </select>
-          <button id="buttonStart" (click)="start($event)">Start</button>
+          <button class="start-button" ion-button (click)="start($event)">Start</button>
         </div>
-        <div class="results" id="textareaInput">
-          <span class="final" id="final_span">{{ messages.final_span }}</span>
-          <span class="interim" id="interim_span">{{ messages.interim_span }}</span>
+        <div class="results">
+          <span class="final">{{ messages.final_span }}</span>
+          <span class="interim">{{ messages.interim_span }}</span>
         </div>
       </ion-col>
-      <ion-col col-6 class="output">
+      <!-- <ion-col col-6 class="output">
         <h2>Output</h2>
         <div class="controls">
-          <select id="selectVoice" [(ngModel)]="selectVoice">
+          <select [(ngModel)]="selectVoice">
             <option [ngValue]="voice.value" *ngFor="let voice of voices">{{ voice.label }}</option>
           </select>
         </div>
-        <div class="results" id="textareaOutput">
-          <span class="final" id="final_voice">{{ messages.final_voice }}</span>
-          <span class="interim" id="interim_voice">{{ messages.interim_voice }}</span>
+        <div class="results">
+          <span class="final">{{ messages.final_voice }}</span>
+          <span class="interim">{{ messages.interim_voice }}</span>
         </div>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
     <ion-row>
       <ion-col col-10>
