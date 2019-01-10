@@ -126,8 +126,9 @@ export class HomePage {
     ['ภาษาไทย', ['th-TH']]
   ];
 
+  speechRecognition = window['SpeechRecognition'] || window['webkitSpeechRecognition'] || null;
   ignore_onend = false;
-  recognition = new window["webkitSpeechRecognition"]();
+  recognition = this.speechRecognition ? new this.speechRecognition() : false;
   recognizing = false;
   synth = window.speechSynthesis;
   voicesList: Array<object>;
@@ -148,6 +149,10 @@ export class HomePage {
     public navParams: NavParams,
     private zone: NgZone
   ) {
+    if (!this.speechRecognition) {
+      console.log('SpeechRecognition API not found!');
+      return;
+    }
     this.roomkey = this.navParams.get("key") as string;
     this.nickname = this.navParams.get("nickname") as string;
     this.data.type = 'message';

@@ -9,8 +9,8 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "start": "ionic serve",
-    "emulate": "ionic cordova emulate ios -lc --debug --target=\"iPhone-X\" -- --buildFlag=\"-UseModernBuildSystem=0\"",
-    "emulate-2": "ionic cordova emulate android --verbose",
+    "emulate": "ionic cordova emulate ios -lc --debug --target='iPhone-8, 12.1' -- --buildFlag='-UseModernBuildSystem=0'",
+    "emulate-2": "ionic cordova emulate android -lc --debug",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
@@ -32,6 +32,7 @@
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
@@ -52,7 +53,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "android",
